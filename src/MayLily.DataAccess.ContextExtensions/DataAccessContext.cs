@@ -39,7 +39,7 @@ namespace MayLily.DataAccess.ContextExtensions
             base.SaveChanges(failureMode);
         }
 
-        private void Validate()
+        protected virtual void Validate()
         {
             if (this.ShouldValidateEntities == false || this.Validator == null)
             {
@@ -52,7 +52,7 @@ namespace MayLily.DataAccess.ContextExtensions
             this.ValidateEntities(changes.GetUpdates<object>());
         }
 
-        private void ValidateEntities(IList<object> entities)
+        protected virtual void ValidateEntities(IList<object> entities)
         {
             IEnumerable<ValidationError> errors;
             foreach (var entity in entities)
