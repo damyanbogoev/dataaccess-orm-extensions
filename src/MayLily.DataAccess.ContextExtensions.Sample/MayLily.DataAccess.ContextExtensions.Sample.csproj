@@ -64,7 +64,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\CategoryValidator.cs" />
-    <Compile Include="Validation\DataAnnotationsValidator.cs" />
     <Compile Include="Validation\FluentValidationValidator.cs" />
     <Compile Include="Validation\FluentValidatorFactory.cs" />
   </ItemGroup>

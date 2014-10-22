@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +65,7 @@
     <Compile Include="Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\BaseDataAccessValidator.cs" />
+    <Compile Include="Validation\DataAnnotationsValidator.cs" />
     <Compile Include="Validation\IDataAccessValidator.cs" />
     <Compile Include="Validation\ValidationError.cs" />
   </ItemGroup>
