@@ -34,18 +34,16 @@ namespace MayLily.DataAccess.ContextExtensions
 
         public override void SaveChanges(ConcurrencyConflictsProcessingMode failureMode)
         {
-            this.Validate();
+            if (this.ShouldValidateEntities && this.Validator != null)
+            {
+                this.Validate();
+            }
 
             base.SaveChanges(failureMode);
         }
 
         protected virtual void Validate()
         {
-            if (this.ShouldValidateEntities == false || this.Validator == null)
-            {
-                return;
-            }
-
             var changes = this.GetChanges();
 
             this.ValidateEntities(changes.GetInserts<object>());
