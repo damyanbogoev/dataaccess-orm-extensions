@@ -1,5 +1,4 @@
-﻿
-namespace MayLily.DataAccess.ContextExtensions
+﻿namespace MayLily.DataAccess.ContextExtensions
 {
     public class ValidationError
     {
