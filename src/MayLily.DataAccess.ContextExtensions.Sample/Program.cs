@@ -13,17 +13,25 @@ namespace MayLily.DataAccess.ContextExtensions.Sample
                 .MetadataContainer(m => m.Source<MyMetadataSource>().NullForeignKey())
                 .FetchStrategy(fs => { })
                 .CacheKey("SampleKey")
+                .EnableValidation(new DataAnnotationsValidator())
+                //.EnableValidation(new FluentValidationValidator(new FluentValidatorFactory()))
                 .Build<MyContext>(migrateSchema: true);
 
             using (context)
             {
-                //context.Add(new Product { Name = "Chocolate" });
+                context.Add(new Product { Name = null });
                 //context.SaveChanges();
 
-                foreach (var product in context.Products)
-                {
-                    Console.WriteLine(product.Name);
-                }
+                //context.Validator = new DataAnnotationsValidator();
+
+                //context.Add(new Product { Name = null });
+                context.Add(new Category { Name = null });
+                context.SaveChanges();
+
+                //foreach (var product in context.Products)
+                //{
+                //    Console.WriteLine(product.Name);
+                //}
             }
         }
     }

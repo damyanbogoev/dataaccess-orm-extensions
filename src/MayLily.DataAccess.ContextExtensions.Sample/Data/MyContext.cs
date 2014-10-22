@@ -3,9 +3,9 @@ using Telerik.OpenAccess;
 
 namespace MayLily.DataAccess.ContextExtensions.Sample
 {
-    public class MyContext : OpenAccessContext
+    public class MyContext : DataAccessContext
     {
-        public MyContext(OpenAccessContext context)
+        public MyContext(DataAccessContext context)
             : base(context)
         {
         }

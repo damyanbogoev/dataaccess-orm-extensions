@@ -10,6 +10,8 @@ namespace MayLily.DataAccess.ContextExtensions
         private readonly MetadataFluentConfigurator metadata;
         private readonly FetchStrategyFluentConfigurator strategy;
         private string cacheKey;
+        private IDataAccessValidator validator;
+        private bool enableValidation;
 
         private Db()
         {
@@ -59,10 +61,20 @@ namespace MayLily.DataAccess.ContextExtensions
             return this;
         }
 
-        public OpenAccessContext Build(bool migrateSchema = false)
+        public Db EnableValidation(IDataAccessValidator validator)
         {
-            var result = new OpenAccessContext(this.connectionString.Build(), this.cacheKey, this.backend.Build(), this.metadata.Build());
+            this.validator = validator;
+            this.enableValidation = true;
+
+            return this;
+        }
+
+        public DataAccessContext Build(bool migrateSchema = false)
+        {
+            var result = new DataAccessContext(this.connectionString.Build(), this.cacheKey, this.backend.Build(), this.metadata.Build());
             result.FetchStrategy = this.strategy.Build();
+            result.ShouldValidateEntities = this.enableValidation;
+            result.Validator = validator;
             if (migrateSchema)
             {
                 Db.MigrateSchema(result);
@@ -72,10 +84,10 @@ namespace MayLily.DataAccess.ContextExtensions
         }
 
         public TContext Build<TContext>(bool migrateSchema = false)
-            where TContext : OpenAccessContext
+            where TContext : DataAccessContext
         {
             var type = typeof(TContext);
-            var ctor = type.GetConstructor(new[] { typeof(OpenAccessContext) });
+            var ctor = type.GetConstructor(new[] { typeof(DataAccessContext) });
 
             return ctor.Invoke(new object[] { this.Build(migrateSchema) }) as TContext;
         }
