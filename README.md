@@ -100,3 +100,22 @@ To create a new OpenAccessContext instance based on the provided settings the Bu
                 .Build<NorthwindContext>(migrateSchema: true);
 
 The Build method has a parameter which controls if we want to migrate the schema of the underlying database. Default value is set to **false**.
+
+
+## DataAccessContext ##
+
+DataAccessContext adds additional functionality to the OpenAccessContext.
+
+### Validation ###
+
+If an IDataAccessValidator is specified and the ShouldValidateEntities property is set to true all added and modified entities will be validate using the IDataAccessValidator before persisting the changes to the database.
+
+An easy way to setup the validation for the DataAccessContext is to use the DataAcess ORM fluent API:
+
+	Db.Init()
+      .EnableValidation(new DataAnnotationsValidator())
+
+The DataAnnotationsValidator validator is a built-in validation which uses data annotations to validate the entities.
+
+It is very easy to implement a custom validator the uses the FluentValidation framework. Custom implementation can be found under the MayLily.DataAccess.ContextExtensions.Sample.
+
