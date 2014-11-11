@@ -8,7 +8,7 @@ namespace MayLily.DataAccess.ContextExtensions.Sample
         public static void Main(string[] args)
         {
             var context = Db.Init()
-                .ConnectionString(c => c.LoadFromConfig("MyConnection"))
+                .ConnectionString(c => c.LoadFromConfig("NorthwindConnection"))
                 .BackendConfiguration(b => b.LoadFromConfig("MssqlConfiguration", ConfigurationMergeMode.ConfigFileDefinitionWins))
                 .MetadataContainer(m => m.Source<MyMetadataSource>().NullForeignKey())
                 .FetchStrategy(fs => { })
