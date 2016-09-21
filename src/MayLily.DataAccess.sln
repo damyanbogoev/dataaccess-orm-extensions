@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayLily.DataAccess.ContextExtensions", "MayLily.DataAccess.ContextExtensions\MayLily.DataAccess.ContextExtensions.csproj", "{97D1565A-4CEF-485C-ACAC-9D15728A03A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayLily.DataAccess.ContextExtensions.Sample", "MayLily.DataAccess.ContextExtensions.Sample\MayLily.DataAccess.ContextExtensions.Sample.csproj", "{6EB319D5-E806-4FB0-89A3-053EAE691386}"
@@ -11,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CC86A5
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayLily.DataAccess.FluentMigrator", "MayLily.DataAccess.FluentMigrator\MayLily.DataAccess.FluentMigrator.csproj", "{D975769A-A24C-495E-BF44-4EE112356EA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +30,10 @@ Global
 		{6EB319D5-E806-4FB0-89A3-053EAE691386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EB319D5-E806-4FB0-89A3-053EAE691386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EB319D5-E806-4FB0-89A3-053EAE691386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D975769A-A24C-495E-BF44-4EE112356EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D975769A-A24C-495E-BF44-4EE112356EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D975769A-A24C-495E-BF44-4EE112356EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D975769A-A24C-495E-BF44-4EE112356EA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
