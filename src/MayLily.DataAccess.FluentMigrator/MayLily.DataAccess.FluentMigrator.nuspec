@@ -14,6 +14,6 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="bin\Release\MayLily.DataAccess.FluentMigrator.dll" target="lib\net45\MayLily.DataAccess.FluentMigrator.dll" />
+        <file src="bin\Release\MayLily.DataAccess.FluentMigrator.dll" target="lib\net40\MayLily.DataAccess.FluentMigrator.dll" />
     </files>
 </package>
