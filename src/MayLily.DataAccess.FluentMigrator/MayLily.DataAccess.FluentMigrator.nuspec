@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>MayLily.DataAccess.FluentMigrator</id>
+        <version>0.0.1</version>
+        <title>Telerik DataAccess FluentMigrator</title>
+        <authors>Damyan Bogoev</authors>
+        <owners>Damyan Bogoev</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Provides means to create Fluent Migration based on the Telerik DataAccess schema handler.</description>
+        <copyright>Copyright © Damyan Bogoev 2016</copyright>
+        <dependencies>
+            <dependency id="Telerik.DataAccess.Core" version="[2016.1.224.1]" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\MayLily.DataAccess.FluentMigrator.dll" target="lib\net45\MayLily.DataAccess.FluentMigrator.dll" />
+    </files>
+</package>
