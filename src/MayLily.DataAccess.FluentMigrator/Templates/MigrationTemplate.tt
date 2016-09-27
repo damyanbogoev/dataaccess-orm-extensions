@@ -1,0 +1,60 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using FluentMigrator;
+
+namespace <#= this.Namespace #>.Migrations
+{
+    [Migration(<#= this.Version #>, "<#= this.Description #>")]
+    public class <#= this.Name #> : Migration
+    {
+        public override void Down()
+        {
+<# 
+			foreach(var tableToCreate in this.Metadata.TablesToCreate)
+			{
+#>
+            Delete.Table("<#= tableToCreate.Name #>");
+<#				
+			}
+
+			foreach(var indexToCreate in this.Metadata.IndicesToCreate)
+			{
+#>
+            Delete.Index("<#= indexToCreate.Name #>")
+                  .OnTable("<#= indexToCreate.Table.Name #>");
+<#				
+			}
+
+			foreach(var indexToDrop in this.Metadata.IndicesToDrop)
+			{
+#>
+            Create.Index("<#= indexToDrop.Name #>");
+<#				
+			}
+#>
+        }
+
+        public override void Up()
+        {
+<# 
+			foreach(var tableToCreate in this.Metadata.TablesToCreate)
+			{
+#>
+            Create.Table("<#= tableToCreate.Name #>");
+<#				
+			}
+
+			foreach(var indexToDrop in this.Metadata.IndicesToDrop)
+			{
+#>
+            Delete.Index("<#= indexToDrop.Name #>")
+                  .OnTable("<#= indexToDrop.Table.Name #>");
+<#				
+			}
+#>
+        }
+    }
+}
